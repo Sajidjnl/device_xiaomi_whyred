@@ -14,12 +14,4 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-  <string name="app_name">Xiaomi</string>
-  <string name="advanced_settings">Zaawansowane</string>
-  <string name="category_system">System</string>
-  <string name="vib_strength_title_head">Siła wibracji</string>
-  <string name="display_title">Wyświetlacz</string>
-  <string name="device_doze_title">Ekran dostosowany do otoczenia</string>
-  <string name="camera_title">Aparat</string>
-</resources>
+<resources></resources>

@@ -6,6 +6,18 @@ type fpc_sysfs, fs_type, sysfs_type;
 # Power
 type debugfs_wlan, debugfs_type, fs_type;
 type sysfs_touchpanel, sysfs_type, fs_type;
+type debugfs_msm_core, debugfs_type, fs_type;
+type perfd_socket, file_type;
+
+type thermal_dump_file, file_type;
+type sysfs_video4linux, sysfs_type, fs_type;
+type sysfs_power_supply, sysfs_type, fs_type;
+type sysfs_input, sysfs_type, fs_type;
+type sysfs_bt_device, sysfs_type, fs_type;
+type tftp_server_check_file, file_type;
+type sysfs_wifi, fs_type, sysfs_type;
+type sysfs_cnss_common, sysfs_type, fs_type;
+type debugfs_wifi, debugfs_type, file_type;
 
 # Remote storage
 type debugfs_rmt, debugfs_type, fs_type;
@@ -20,3 +32,5 @@ type thermal_decrypt_file, data_file_type, file_type;
 
 # Torch
 type sysfs_torch, fs_type, sysfs_type;
+
+type debugfs_mem, debugfs_type, fs_type;

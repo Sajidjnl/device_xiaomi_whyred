@@ -23,16 +23,12 @@ import android.content.res.Resources;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.SystemProperties;
 import android.support.v14.preference.PreferenceFragment;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceManager;
 import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -47,43 +43,27 @@ public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String KEY_CATEGORY_DISPLAY = "display";
-    private static final String KEY_CATEGORY_CAMERA = "camera";
-    private static final String ENABLE_HAL3_KEY = "hal3";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
 
     final String KEY_DEVICE_DOZE = "device_doze";
     final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
 
-    private static final String HAL3_SYSTEM_PROPERTY = "persist.camera.HAL3.enabled";
-
     private VibratorStrengthPreference mVibratorStrength;
-    private SwitchPreference mEnableHAL3;
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.main, rootKey);
-        mEnableHAL3 = (SwitchPreference) findPreference(ENABLE_HAL3_KEY);
-        mEnableHAL3.setChecked(SystemProperties.getBoolean(HAL3_SYSTEM_PROPERTY, false));
-        mEnableHAL3.setOnPreferenceChangeListener(this);
 
         mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
         if (mVibratorStrength != null) {
             mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
         }
 
-
         if (!isAppInstalled(KEY_DEVICE_DOZE_PACKAGE_NAME)) {
             PreferenceCategory displayCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_DISPLAY);
             displayCategory.removePreference(findPreference(KEY_DEVICE_DOZE));
         }
 
-    }
-
-   private void setEnableHAL3(boolean value) {
-        if(value) {
-            SystemProperties.set(HAL3_SYSTEM_PROPERTY, "1");
-        } else {
-            SystemProperties.set(HAL3_SYSTEM_PROPERTY, "0");
-        }
     }
 
     @Override
@@ -93,15 +73,6 @@ public class DeviceSettings extends PreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final String key = preference.getKey();
-        boolean value;
-        String strvalue;
-        if (ENABLE_HAL3_KEY.equals(key)) {
-            value = (Boolean) newValue;
-            mEnableHAL3.setChecked(value);
-            setEnableHAL3(value);
-            return true;
-        }
         return true;
     }
 
