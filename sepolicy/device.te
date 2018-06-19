@@ -3,3 +3,6 @@ type fingerprintd_device, dev_type;
 
 # IR
 type lirc_device, dev_type;
+
+# Persist
+type persist_block_device, dev_type;

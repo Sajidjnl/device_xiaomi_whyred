@@ -26,16 +26,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, vendor/xiaomi/whyred/whyred-vendor.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 	
 # Screen density
-PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_CONFIG := xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2160
-TARGET_SCREEN_WIDTH := 1080
+PRODUCT_PACKAGES += \
+    omni_charger_res_images
+
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    librs_jni
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -143,6 +149,9 @@ PRODUCT_PACKAGES += \
 	
 # Camera
 PRODUCT_PACKAGES += \
+    Camera2
+
+PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     vendor.qti.hardware.camera.device@1.0 \
@@ -217,11 +226,8 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    FM2 \
-    libqcomfm_jni \
-    qcom.fmradio
-
-PRODUCT_BOOT_JARS += qcom.fmradio
+    FMRadio \
+    libfmjni
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
@@ -446,3 +452,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heaptargetutilization=0.75 \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
+	
+# Xiaomi
+PRODUCT_PACKAGES += \
+    XiaomiDoze \
+    XiaomiParts
+	

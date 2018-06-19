@@ -1,4 +1,4 @@
-# Device Tree for Xiaomi Redmi Note 5 (whyred)
+# Device Tree for Xiaomi Redmi Note 5 (Note 5 Pro) (whyred)
 
 ## Spec Sheet
 
@@ -15,7 +15,7 @@
 | Dimensions              | 158.6 x 75.4 x 8.05 mm            |
 | Display                 | 2160x1080 pixels, 5.99 (~403 PPI) |
 | Rear Camera             | 12 MP + 5 MP, LED flash           |
-| Front Camera            | 13 MP                             |
+| Front Camera            | 13 MP(20MP Note 5 Pro),LED Flash  |
 | Release Date            | 14 February 2018                  |
 
 ## Device Picture
