@@ -1,4 +1,3 @@
-
 # Radio
 rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
 persist.rild.nitz_plmn=
@@ -15,10 +14,112 @@ DEVICE_PROVISIONED=1
 ro.telephony.default_network=22,20
 telephony.lteOnCdmaDevice=1
 persist.dbg.vt_avail_ovr=1
+persist.sys.mcd_config_file=/system/etc/mcd_default.conf
+ro.opa.eligible_device=true
+persist.radio.multisim.config=dsds
+persist.vendor.qcomsysd.enabled=1
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.dynamic_sar=false
+persist.vendor.radio.sib16_support=1
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.rat_on=combine
+persist.radio.schd.cache=3500
+persist.radio.aosp_usr_pref_sel=true
+persist.radio.NO_STAPA=1
+persist.radio.sw_mbn_update=0
+persist.radio.hw_mbn_update=0
+persist.radio.trigger.silence=true
+
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.ims_volte_enable=1
+persist.radio.videopause.mode=1
+persist.data.iwlan.enable=true
+persist.radio.VT_HYBRID_ENABLE=1
+
+# Flag for activating mbn or not,default is true.
+persist.activate_mbn.enabled=false
+ro.regionalization.support=true
 
 # Enable snapshot
 persist.vendor.radio.snapshot_enabled=1
 persist.vendor.radio.snapshot_timer=5
+
+# Audio
+vendor.audio_hal.period_size=192
+ro.vendor.audio.sdk.fluencetype=fluence
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicerec=false
+persist.vendor.audio.fluence.speaker=true
+vendor.audio.tunnel.encode=false
+persist.vendor.audio.ras.enabled=false
+persist.vendor.bt.enable.splita2dp=false
+vendor.audio.offload.buffer.size.kb=64
+audio.offload.min.duration.secs=30
+audio.offload.video=true
+vendor.audio.offload.track.enable=true
+audio.deep_buffer.media=true
+vendor.voice.path.for.pcm.voip=true
+vendor.audio.offload.multiaac.enable=true
+vendor.audio.dolby.ds2.enabled=false
+vendor.audio.dolby.ds2.hardbypass=false
+vendor.audio.offload.multiple.enabled=false
+vendor.audio.offload.passthrough=false
+ro.vendor.audio.sdk.ssr=false
+vendor.audio.offload.gapless.enabled=true
+vendor.audio.safx.pbe.enabled=true
+vendor.audio.parser.ip.buffer.size=262144
+vendor.audio.flac.sw.decoder.24bit=true
+persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac
+vendor.audio.use.sw.alac.decoder=true
+vendor.audio.use.sw.ape.decoder=true
+vendor.audio.hw.aac.encoder=true
+vendor.fm.a2dp.conc.disabled=true
+vendor.audio.noisy.broadcast.delay=600
+persist.vendor.audio.hifi.int_codec=true
+vendor.audio.offload.pstimeout.secs=3
+audio.adm.buffering.ms=6
+af.fast_track_multiplier=1
+ro.config.vc_call_vol_steps=11
+
+# Set for xiaomi headset effect
+ro.audio.soundfx.dirac=true
+
+# Add for dirac algo tsx 9/12
+persist.dirac.acs.controller=qem
+persist.dirac.acs.storeSettings=1
+persist.dirac.acs.ignore_error=1
+
+# Bluetooth
+qcom.bluetooth.soc=cherokee
+ro.bluetooth.hfp.ver=1.6
+
+# Camera
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk
+persist.camera.HAL3.enabled=1
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+persist.camera.preview.ubwc=0
+persist.camera.stats.test=0
+persist.camera.depth.focus.cb=0
+persist.camera.isp.clock.optmz=0
+persist.camera.hist.high=20
+persist.camera.hist.drc=1.2
+persist.camera.linkpreview=0
+persist.camera.isp.turbo=1
+persist.flash.low.lux=390
+persist.flash.light.lux=340
+persist.imx376_ofilm.low.lux=310
+persist.imx376_ofilm.light.lux=280
+persist.imx376_sunny.low.lux=310
+persist.imx376_sunny.light.lux=280
+persist.ov13855_sunny.low.lux=385
+persist.ov13855_sunny.light.lux=370
+persist.s5k3l8_ofilm.low.lux=379
+persist.s5k3l8_ofilm.light.lux=367
+persist.vendor.qti.telephony.vt_cam_interface=1
+persist.radio.VT_CAM_INTERFACE=2
+vidc.enc.dcvs.extra-buff-count=2
+persist.dualcam.lpm.enable=1
 
 # Display
 debug.sf.enable_hwc_vds=1
@@ -26,7 +127,24 @@ debug.sf.latch_unsignaled=1
 debug.gralloc.enable_fb_ubwc=1
 ro.sf.lcd_density=440
 sdm.debug.disable_skip_validate=1
+persist.hwc.enable_vds=1
+persist.debug.wfd.enable=1
+persist.sys.wfd.virtual=0
 ro.opengles.version=196610
+vendor.display.enable_default_color_mode=0
+ro.qualcomm.cabl=0
+
+# Paper mode
+sys.paper_mode_max_level=32
+sys.tianma_td4310_offset=5
+sys.tianma_td4310_length=55
+sys.shenchao_td4310_offset=-2
+sys.shenchao_td4310_length=45
+sys.tianma_nt36672_offset=2
+sys.tianma_nt36672_length=45
+
+# Enable new autobrightness algo
+sys.autobrightness_optimize=true
 
 # HWUI
 ro.hwui.texture_cache_size=88
@@ -77,13 +195,6 @@ persist.data.mode=concurrent
 # System props for time-services
 persist.timed.enable=true
 
-# Bluetooth
-qcom.bluetooth.soc=cherokee
-ro.bluetooth.hfp.ver=1.6
-
-# System property for cabl
-ro.qualcomm.cabl=0
-
 # System prop for RmNet Data
 persist.rmnet.data.enable=true
 persist.data.wda.enable=true
@@ -95,82 +206,41 @@ persist.data.df.mux_count=8
 persist.data.df.iwlan_mux=9
 persist.data.df.dev_name=rmnet_usb0
 
-# Property to enable user to access Google WFD settings
-persist.debug.wfd.enable=1
-
-# Property to choose between virtual/external wfd display
-persist.sys.wfd.virtual=0
-
 # Bringup properties
 persist.radio.atfwd.start=true
-
-# Property to enable VDS WFD solution
-persist.hwc.enable_vds=1
 
 # Settings to enable sensors
 ro.vendor.sensors.dev_ori=false
 ro.vendor.sensors.pmd=true
 ro.vendor.sensors.sta_detect=true
 ro.vendor.sensors.mot_detect=true
-
-# Camera
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk
-persist.camera.HAL3.enabled=1
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
-persist.camera.preview.ubwc=0
-persist.camera.stats.test=0
-persist.camera.depth.focus.cb=0
-persist.camera.isp.clock.optmz=0
-persist.camera.hist.high=20
-persist.camera.hist.drc=1.2
-persist.camera.linkpreview=0
-persist.camera.isp.turbo=1
-persist.flash.low.lux=390
-persist.flash.light.lux=340
-persist.imx376_ofilm.low.lux=310
-persist.imx376_ofilm.light.lux=280
-persist.imx376_sunny.low.lux=310
-persist.imx376_sunny.light.lux=280
-persist.ov13855_sunny.low.lux=385
-persist.ov13855_sunny.light.lux=370
-persist.s5k3l8_ofilm.low.lux=379
-persist.s5k3l8_ofilm.light.lux=367
-persist.vendor.qti.telephony.vt_cam_interface=1
-persist.radio.VT_CAM_INTERFACE=2
-vidc.enc.dcvs.extra-buff-count=2
-persist.dualcam.lpm.enable=1
-
-# Set for xiaomi headset effect
-ro.audio.soundfx.dirac=true
-
-# Add for dirac algo tsx 9/12
-persist.dirac.acs.controller=qem
-persist.dirac.acs.storeSettings=1
-persist.dirac.acs.ignore_error=1
+ro.vendor.sensors.facing=false
+ro.vendor.sensors.cmc=false
+ro.vendor.sdk.sensors.gestures=false
 
 # Set maximum supported adapter voltage
 persist.chg.max_volt_mv=9000
 
-# Property to enable display default color mode
-vendor.display.enable_default_color_mode=0
-
-# Property for backup NTP Server
+# GPS
 persist.backup.ntpServer="0.pool.ntp.org"
-
-# Enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
 
-# Paper mode
-sys.paper_mode_max_level=32
-sys.tianma_td4310_offset=5
-sys.tianma_td4310_length=55
-sys.shenchao_td4310_offset=-2
-sys.shenchao_td4310_length=45
-sys.tianma_nt36672_offset=2
-sys.tianma_nt36672_length=45
+# DRM
+drm.service.enabled=true
 
-# Enable new autobrightness algo
-sys.autobrightness_optimize=true
+# FRP
+ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.qti.sys.fw.bg_apps_limit=60
+sdm.debug.disable_skip_validate=1
+sdm.perf_hint_window=50
+persist.sys.perf.debug=false
+
+#
+sys.vendor.shutdown.waittime=500
+ro.build.shutdown_timeout=2
 
 # ART
 dalvik.vm.dex2oat-filter=speed
@@ -179,6 +249,14 @@ ro.sys.fw.dex2oat_thread_count=8
 
 # Higher fling velocities to smooth scrolling
 # and provide better responsiveness
-ro.min.fling_velocity=160
+ro.min.fling_velocity=140
 ro.max.fling_velocity=20000
 
+# USB
+persist.sys.usb.config.extra=none
+sys.usb.controller=a800000.dwc3
+sys.usb.rndis.func.name=rndis_bam
+sys.usb.rmnet.func.name=rmnet_bam
+
+# Wlan
+wifi.interface=wlan0
