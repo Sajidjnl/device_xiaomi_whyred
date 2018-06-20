@@ -27,8 +27,7 @@ $(call inherit-product, vendor/xiaomi/whyred/whyred-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay
 	
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -202,9 +201,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/display/qdcm_calib_data_tianma_nt36672_fhd_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_tianma_nt36672_fhd_video_mode_dsi_panel.xml \
     $(LOCAL_PATH)/display/qdcm_calib_data_tianma_td4310_fhd_video_mode_dsi_panel.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_tianma_td4310_fhd_video_mode_dsi_panel.xml
 
-# Doze
+# Device Settings
 PRODUCT_PACKAGES += \
-    XiaomiDoze	
+    XiaomiDoze \
+    XiaomiParts
 	
 # DRM
 PRODUCT_PACKAGES += \
@@ -294,10 +294,6 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 	
-# LiveDisplay native
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@1.0-service-sdm
-
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
@@ -341,6 +337,9 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
+	
+# Properties
+-include device/xiaomi/whyred/prop.mk
 
 # Low power Whitelist
 PRODUCT_COPY_FILES += \
