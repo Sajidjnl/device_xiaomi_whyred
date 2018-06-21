@@ -255,18 +255,6 @@ on property:persist.sys.display_srgb=1
 on property:persist.sys.display_srgb=2
     write /sys/class/graphics/fb0/msm_fb_srgb 2
 
-service adswitch /vendor/bin/adswitch
-    user root
-    group root
-    disabled
-    oneshot
-
-on property:sys.ad.enable=on
-    start adswitch
-
-on property:sys.ad.enable=off
-    start adswitch
-
 on property:persist.sys.display_ce=4
     write /sys/class/graphics/fb0/msm_fb_ce 1
 
