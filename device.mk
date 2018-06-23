@@ -222,7 +222,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FM2 \
     libqcomfm_jni \
-    qcom.fmradio
+    qcom.fmradio \
+	init.qti.fm.sh
 
 PRODUCT_BOOT_JARS += qcom.fmradio
 
@@ -344,6 +345,32 @@ PRODUCT_COPY_FILES += \
 # QMI
 PRODUCT_PACKAGES += \
     libjson
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.msm.usb.configfs.rc \
+    init.target.rc \
+    ueventd.qcom.rc
+
+PRODUCT_PACKAGES += \
+	init.class_main.sh \
+	init.crda.sh \
+	init.mdm.sh \
+	init.qcom.class_core.sh \
+	init.qcom.coex.sh \
+	init.qcom.early_boot.sh \
+	init.qcom.post_boot.sh \
+	init.qcom.sdio.sh \
+	init.qcom.sensors.sh \
+	init.qcom.sh \
+	init.qcom.syspart_fixup.sh \
+	init.qcom.usb.sh \
+	init.qcom.wifi.sh \
+	init.qti.ims.sh \
+	init.qti.qseecomd.sh
 
 # RCS
 PRODUCT_PACKAGES += \
