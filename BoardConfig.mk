@@ -257,3 +257,5 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files
 -include vendor/xiaomi/whyred/BoardConfigVendor.mk
+
+ALLOW_MISSING_DEPENDENCIES=true
