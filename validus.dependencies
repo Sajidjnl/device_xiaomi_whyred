@@ -1,0 +1,14 @@
+[
+  {
+    "remote":      "github",
+    "repository":  "Sajidjnl/kernel_xiaomi_whyred",
+    "target_path": "kernel/xiaomi/whyred",
+    "branch":      "8.1"
+  },
+  {
+    "remote":      "github",
+    "repository":  "Sajidjnl/vendor_xiaomi",
+    "target_path": "vendor/xiaomi"
+    "branch":      "8.1"
+  }
+]
